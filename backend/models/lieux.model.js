@@ -5,7 +5,9 @@ module.exports = mongoose => {
     nom: { type: String, required: true },
     adresse: { type: String, required: true },
     ville: { type: String, required: true },
-    capacite: { type: Number }
+    capacite: { type: Number },
+    description: { type: String },
+
   }, {
     timestamps: true
   });

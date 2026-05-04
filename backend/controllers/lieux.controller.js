@@ -1,12 +1,12 @@
-const db = require('../database/database.js');
-const Lieu = db.lieux; // ⚠️ ici on change
+const db = require('../config/db.js');
+const Lieu = db.lieux;
 
 // Create lieu
 exports.create = async (req, res) => {
   try {
-    const { nom, adresse, capacite, description } = req.body;
+    const { nom, adresse,ville, capacite, description } = req.body;
 
-    if (!nom || !adresse) {
+    if (!nom || !adresse || !ville) {
       return res.status(400).send({
         message: 'nom and adresse are required'
       });
@@ -15,6 +15,7 @@ exports.create = async (req, res) => {
     const lieu = new Lieu({
       nom,
       adresse,
+      ville,
       capacite,
       description
     });

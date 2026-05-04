@@ -1,4 +1,4 @@
-const db = require('../database/database.js');
+const db = require('../config/db.js');
 const Evenement = db.evenements;
 
 // Create evenement
@@ -55,7 +55,7 @@ exports.findAll = async (req, res) => {
 
     const evenements = await Evenement.find(condition)
       .populate('lieuId')
-      .sort({ dateDebut: 1 }); // bonus: sort by date
+      .sort({ dateDebut: 1 }); // sort by date
 
     res.send(evenements);
   } catch (err) {
