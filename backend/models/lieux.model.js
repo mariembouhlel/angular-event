@@ -9,14 +9,15 @@ module.exports = mongoose => {
     description: { type: String },
 
   }, {
-    timestamps: true
+    timestamps: true 
   });
 
   LieuSchema.method("toJSON", function () {
     const { __v, _id, ...object } = this.toObject();
-    object.id = _id;
+    object.id = _id; 
     return object;
-  });
+  }); 
+  
 
   const Lieu = mongoose.model("Lieu", LieuSchema);
   return Lieu;
